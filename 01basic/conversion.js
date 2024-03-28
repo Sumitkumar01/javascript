@@ -53,7 +53,16 @@ num1 = num2 = num3 = 10;//bad code
 
 let gameCount = 10;
 gameCount++;
-console.log(gameCount);
+// console.log(gameCount);
 
 // *********************** comparison ******************************
 
+// console.log('10' == 10);//true
+// console.log('10' > 10);//false
+// console.log('10' < 10);//false
+// console.log(null >= 0);//true
+// console.log(null == 0);//false
+// console.log(null > 0);//false
+// console.log(undefined > 0);//false
+// console.log(undefined == 0);//false
+// console.log(undefined >= 0);//false
