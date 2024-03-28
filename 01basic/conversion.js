@@ -17,7 +17,43 @@ let isLoggedIn = "a";
 
 let valueInBoolean = Boolean(isLoggedIn);
 
-console.log(valueInBoolean);
+// console.log(valueInBoolean);
 
 // 1 = true; 0 = false; " "= false; "a" = true;
+
+
+// *********************** operations ******************************
+
+let value = 34;
+let negativeValue = -value;
+
+// console.log(negativeValue);
+
+// console.log(2+2);
+// console.log(2-2);
+// console.log(2*2);
+// console.log(2**2);
+// console.log(2/2);
+// console.log(2%2);
+
+let str1 = "hello";
+let str2 = "world";
+// let concatStr = str1 + " " + str2;
+
+// console.log(concatStr);
+// console.log(1+"2");
+// console.log("1"+2);
+// console.log('1'+2+3);
+// console.log(1+2+'3');
+// console.log(+true);
+// console.log(+"");
+let num1, num2, num3;
+num1 = num2 = num3 = 10;//bad code
+// console.log(num1+num2+num3);
+
+let gameCount = 10;
+gameCount++;
+console.log(gameCount);
+
+// *********************** comparison ******************************
 
