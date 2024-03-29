@@ -27,4 +27,21 @@ const arr = [10, 20, 30, 40, 50, "hello", true, false, null, undefined];
 // console.log(arr.join());// to join the array into a string
 // console.log(arr.join("-"));// to join the array into a string with the given separator
 
+// part 2
 
+// const heroList_1 = ["Iron Man", "Thor", "Hulk", "Captain America", "Black Widow", "Spider-Man"];
+// const heroList_2 = ["Black Panther", "Doctor Strange", "Ant-Man", "Scarlet Witch", "Vision", "Wasp"];
+
+// console.log(heroList_1.concat(heroList_2));// to concat the array with the given array
+// console.log([...heroList_1,...heroList_2]);// to concat the array with the given array using spread operator
+
+const mynewArr = [1, 2, 3, [1, 4, 5], [1, 2, 3, [1, 4, 5]]];
+
+// console.log(mynewArr.flat(Infinity));// to flatten the array
+// console.log(Array.from({name:'myname'}));// to create an array from the given object it's return an empty array
+// console.log(Array.from("myname"));// to create an array from the given string
+
+let num1 = 123;
+let num2 = 456;
+let num3 = 789;
+console.log(Array.of(num1, num2, num3));
