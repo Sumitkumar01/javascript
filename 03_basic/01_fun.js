@@ -1,5 +1,6 @@
 // function eg
-// Eririka Katagiri
+// 
+
 
 function nameWriter() {
     console.log("s");
@@ -62,11 +63,52 @@ function ary(getArray){
 }
 
 // console.log(ary(array));
-console.log(ary([1, 2, 3, 4, 50]));
+// console.log(ary([1, 2, 3, 4, 50]));
 
 
+function one(){
+    const web = "https://www.google.com";
+
+    function two(){
+        const web2 = "https://www.youtube.com";
+        console.log(web);
+    }
+    // console.log(web2);
+    two();
+}
+
+// one();
+
+const adminUser = {
+    username: "john",
+    password: "12345",
+    role: "admin",    
+    message: function(){
+        console.log(`hello ${this.username}`);
+    }
+    
+}
+// adminUser.message()
 
 
+//  ***************** arrow function *********************
+
+const arrow = (a,b) => (a + b);
+
+
+// console.log(arrow(3,5));
+
+// **************************IIEF(Immediately Invoked Function Expression) *******************************
+
+// immediately invoked function expression are used to avoid polluting the global namespace
+
+(function(){
+    console.log("hello");
+})();
+
+((name)=>{
+    console.log("hello",name);
+})("john");// output hello john
 
 
 
