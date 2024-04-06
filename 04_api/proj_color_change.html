@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            width: 100px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(255, 0, 0);
+            color: white;
+            text-transform: capitalize;
+        }
+        
+        .btn-start {
+            margin-right: 10px;
+        }
+        
+        .btn-stop {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <button class="btn btn-start" id="start">start</button>
+        <button class="btn btn-stop" id="stop">stop</button>
+    </div>
+
+    <script>
+        const randomColor = () => {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            return `rgb(${r}, ${g}, ${b})`;
+
+            ``
+        }
+
+        const changeColor = () => {
+            const body = document.querySelector('body');
+            body.style.backgroundColor = randomColor();
+
+            console.log(body.style.backgroundColor);
+        }
+        
+        const start = document.getElementById('start');
+        const stop = document.getElementById('stop');
+
+        let color;
+        start.addEventListener('click', () => {
+            color = setInterval(changeColor, 999);
+            console.log("click");
+        })
+        
+        stop.addEventListener('click', () => {
+            clearInterval(color);
+            color = null;
+        })
+
+
+    </script>
+</body>
+
+</html>

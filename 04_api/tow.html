@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Java script</h1>
+    <br>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <p id="time"></p>
+    <script>
+        const date = new Date();
+        const sayDate = () => {
+            console.log(date.toLocaleString());
+        }
+        let intervalId;
+        const start = document.getElementById('start');
+        const stop = document.getElementById('stop');
+        start.addEventListener('click', () => {
+            intervalId = setInterval(sayDate, 1000);
+        });
+        stop.addEventListener('click', () => {
+            clearInterval(intervalId);
+        })
+        const time = document.getElementById('time');
+        time.innerHTML = intervalId;
+    </script>
+</body>
+</html>

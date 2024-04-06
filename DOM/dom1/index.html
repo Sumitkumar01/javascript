@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 1</title>
+    <style>
+        .bg-black {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">Dom learning on Chai aur Code</h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+</body>
+<script>
+    const title = document.getElementById('title');
+    title.innerText = 'Hello World';
+    title.style.color = 'red';
+    console.log(title);
+
+    // diffrent between innerText and textContent
+    // innerText will not take the style of the element
+    // textContent will take the style of the element && it's return the all text even the hidden text
+    //  but in innerText it will not take the hidden text
+
+    // different between html collection and node collection
+    // html collection is a live list of the elements
+    // node collection is a static list of the elements
+    
+
+</script>
+
+</html>
