@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            display: inline-block;
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            border-radius: 10% 20% 30% 40% / 15% 35% 25% 15%;
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            /* transition: all 0.5s ease-in-out */
+        }
+
+        #grey {
+            background-color: grey;
+        }
+
+        #white {
+            background-color: white;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1{
+            text-align: center;
+            font-size: min(5vw, 50px);
+            font-weight: 700;
+        }
+        h2{
+            text-align: center;
+            font-size: min(3vw, 30px);
+        }
+        span{
+            color: rgb(15, 228, 232);
+            font-size: inherit;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            background-color: rgb(223, 223, 223);
+            flex-wrap: wrap;
+        }
+   
+    </style>
+</head>
+
+<body>
+    <h1>Color Switcher</h1>
+
+    <div>
+        <span class="button" id="grey"></span>
+        <span class="button" id="white"></span>
+        <span class="button" id="blue"></span>
+        <span class="button" id="yellow"></span>
+    </div>
+    <h2>Try clicking on one of the colors above <span>to change the background color of this page!</span></h2>
+</body>
+<script>
+
+    const btn = document.querySelectorAll(".button")
+    const body = document.querySelector("body");
+
+    btn.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+            if (e.target.id === 'grey') {
+                body.style.backgroundColor = e.target.id;
+            }
+            if (e.target.id === 'white') {
+                body.style.backgroundColor = 'white';
+            }
+
+            if (e.target.id === 'blue') {
+                body.style.backgroundColor = 'blue';
+            }
+
+            if (e.target.id === 'yellow') {
+                body.style.backgroundColor = 'yellow';
+            }
+        })
+    })
+</script>
+
+</html>
