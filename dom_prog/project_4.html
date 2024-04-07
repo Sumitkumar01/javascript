@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess a number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #ccc;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {}
+
+            to {}
+        }
+
+        div {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #666;
+            text-shadow: 1px 1px 2px #ccc;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 1px 1px 2px #ccc;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        #guess-form {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 18px;
+            color: #666;
+            text-shadow: 1px 1px 2px #ccc;
+            animation: glow 1s ease-in-out infinite alternate;
+
+        }
+
+        #guess-input {
+            width: 200px;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 18px;
+            color: #666;
+            text-shadow: 1px 1px 2px #ccc;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        #guess-form button {
+            padding: 8px 35px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Number guessing game</h1>
+    <div>
+        <p>Try and guess a random number between 1 & 100</p>
+        <p>You have 10 attempts to guess the right number.</p>
+    </div>
+    <div>
+        <form id="guess-form">
+            <label for="guess-input">Guess a number:</label>
+            <input type="number" id="guess-input" placeholder="Guess a number" min="1" max="100">
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        <div class="resultPara">
+            <p>Previous Guesses: <span class="guesses"></span></p>
+            <p>Previous Guesses: <span class="lastResult"></span></p>
+            <p class="lowOrHi"></p>
+        </div>
+    </div>
+</body>
+<script>
+    const randomNumber = parseInt(Math.random() * 100 + 1);
+    const submitButton = document.getElementById('submit');
+    const guessInput = document.getElementById('guess-input');
+    const guesses = document.querySelector('.guesses');
+    const lastResult = document.querySelector('.lastResult');
+    const startOver = document.querySelector('.startOver');
+    const lowOrHi = document.querySelector('.lowOrHi');
+    let guessCount = 1;
+    let prevGuesses = [];
+    let playGame = true;
+
+    if (playGame) {
+        submitButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            const userGuess = parseInt(guessInput.value);
+            // if (validateInput(userGuess)) {
+            //     if (guessCount === 1) {
+            //         guesses.textContent = 'Previous Guesses: ';
+            //         prevGuesses.push(userGuess);
+            //     }
+            //     guesses.textContent += userGuess + ' ';
+            //     if (userGuess === randomNumber) {
+            //         lastResult.textContent = 'Congratulations! You got the right number!';
+            //         lastResult.style.backgroundColor = 'green';
+            //         lowOrHi.textContent = '';
+            //         setGameOver();
+            //     }
+            // }
+            validateInput(userGuess);
+            
+        })
+    }
+
+    function validateInput(guess) {
+        if (guess < 1 || guess > 100) {
+            alert('Please enter a number between 1 and 100');
+            return false;
+        }else if (isNaN(guess)) {
+            alert('Please enter a valid number');
+            return false;
+        }else {
+            prevGuesses.push(guess);
+            if (guessCount === 11) {
+                displayGuess(guess);
+                displayMessage(`You've run out of guesses! The number was ${randomNumber}.`);
+                endGame();
+            }else {
+                displayGuess(guess);
+                checkGuess(guess);
+            }
+        }
+        return true;
+    }
+    function checkGuess(guess) {
+        const userGuess = parseInt(guessInput.value);
+        if (guess === randomNumber) {
+            lastResult.textContent = 'Congratulations! You got the right number!';
+            lastResult.style.backgroundColor = 'green';
+            lowOrHi.textContent = '';
+            endGame();
+        }else if (guess < randomNumber) {
+            displayMessage('Your guess is too low!');
+            lowOrHi.textContent = 'Last guess was too low!';
+            lowOrHi.style.backgroundColor = 'yellow';
+        }else if (guess > randomNumber) {
+            displayMessage('Your guess is too high!');
+            lowOrHi.textContent = 'Last guess was too high!';
+            lowOrHi.style.backgroundColor = 'yellow';
+        }
+    }
+
+    function displayGuess(guess) {
+        guessInput.value = '';
+        guessInput.focus();
+        guessSlot.innerHTML = `${guess}`;
+        guessCount++;
+        remainingGuesses.innerHTML = `${10 - guessCount + 1}`;
+            
+        
+    }
+    function displayMessage(message) {
+        lowOrHi.innerHTML = `<h2>${message}</h2>`;
+            
+    }
+    function endGame() {
+    }
+
+    function newGame() {
+
+    }
+
+    function endGame() {
+
+    }
+</script>
+
+</html>
