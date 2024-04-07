@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    #result {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+    }
+
+   
+
+    #bmiTable {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #bmiTable th,
+    #bmiTable td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    #bmiTable th {
+        background-color: #f2f2f2;
+        color: #333;
+        font-weight: bold;
+    }
+
+    #bmiTable tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    #bmiTable tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    #bmiTable tr:last-child {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    #bmiTable tr:last-child td {
+        border-bottom: none;
+    }
+
+    #bmiTable tr:first-child {
+        background-color: #333;
+        color: #fff;
+    }
+
+    #bmiTable tr:first-child td {
+        border-top: none;
+        font-weight: bold;
+    }
+
+    #bmiTable tr:first-child td:first-child {
+        border-left: none;
+    }
+
+    #bmiTable tr:first-child td:last-child {
+        border-right: none;
+    }
+
+    #bmiTable tr:last-child td:first-child {
+        border-left: none;
+    }
+
+    #bmiTable tr:last-child td:last-child {
+        border-right: none;
+    }
+
+    #bmiTable tr:last-child td:first-child {
+        border-bottom: none;
+    }
+
+    #bmiTable tr:last-child td:last-child {
+        border-bottom: none;
+    }
+
+    div {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        margin-right: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    label {
+        margin-right: 10px;
+        font-weight: bold;
+        color: #333;
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+
+
+    button {
+        padding: 8px 25px;
+        font-size: 16px;
+        border-radius: 4px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #555;
+        color: #fff;
+    }
+
+    button:disabled {
+        background-color: #ccc;
+        color: #333;
+        cursor: not-allowed;
+    }
+
+    button:disabled:hover {
+        background-color: #ccc;
+        color: #333;
+    }
+
+    button:active {
+        background-color: #777;
+        color: #fff;
+        transform: scale(0.98);
+        transition: transform 0.1s ease-in-out;
+    }
+
+    button:focus {
+        outline: none;
+    }
+</style>
+
+<body style="background-color: #19f7c7ee;">
+
+    <h1>BMI Calculator</h1>
+    <form id="bmiForm">
+        <div>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+        </div>
+        <div>
+
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" required>
+        </div>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result"></div>
+
+    <h3>BMI Weight Guide</h3>
+    <table id="bmiTable">
+        <thead>
+            <tr>
+                <th>BMI Range</th>
+                <th>Weight Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Underweight</td>
+                <td>Less than 18.5</td>
+            </tr>
+            <tr>
+                <td>Normal Weight</td>
+                <td>18.5 to 24.9</td>
+            </tr>
+            <tr>
+                <td>Overweight</td>
+                <td>25 to 29.9</td>
+            </tr>
+            <tr>
+                <td>Obese</td>
+                <td>30 or more</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</body>
+<script>
+    const form = document.getElementById('bmiForm');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value) / 100; // Convert height to meters
+
+        const bmi = weight / (height * height);
+        if (height === '' || height <= 0 || isNaN(height)) {
+            result.textContent = `Please enter a valid height. ${height}`;
+        }
+
+        else if (weight === '' || weight <= 0 || isNaN(weight)) {
+            result.textContent = `Please enter a valid weight. ${weight}`;
+        }
+
+        else {
+            result.textContent = `Your BMI is ${bmi.toFixed(2)}`;
+
+            if (bmi < 18.5) {
+                result.textContent += ' You are underweight.';
+                result.style.color = 'red';
+            }
+            else if (bmi < 25) {
+                result.textContent += ' You are normal weight.';
+                result.style.color = 'green';
+            }
+            else if (bmi < 30) {
+                result.textContent += ' You are overweight.';
+                result.style.color = 'orange';
+            }
+            else {
+                result.textContent += ' You are obese.';
+                result.style.color = 'red';
+            }
+        }
+    })
+</script>
+
+</html>
