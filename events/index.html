@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141; color: white;">
+    <h1>Welcome to the Events Page</h1>
+    <div>
+        <ul id="images">
+            <li>
+                <img src="https://images.unsplash.com/photo-1712415341931-96aff76a42e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D"
+                    alt="" id="" width="200px">
+            </li>
+            <li>
+                <img src="https://images.unsplash.com/photo-1712140992752-0feb60625022?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="" id="owl" width="200px">
+            </li>
+            <li>
+                <img src="https://images.unsplash.com/photo-1704318847747-1b3fc0e645ba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D"
+                    alt="" id="" width="200px">
+            </li>
+            <li>
+                <img src="https://plus.unsplash.com/premium_photo-1711570276125-3a8b740f26dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDl8TThqVmJMYlRSd3N8fGVufDB8fHx8fA%3D%3D"
+                    alt="" id="" width="200px">
+            </li>
+            <li>
+                <img src="https://images.unsplash.com/photo-1712390538552-8c3970ab4320?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8aG1lbnZRaFVteE18fGVufDB8fHx8fA%3D%3D"
+                    alt="" id="" width="200px">
+            </li>
+            <li>
+                <img src="https://images.unsplash.com/photo-1712408327249-e4f84bfe31ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8aG1lbnZRaFVteE18fGVufDB8fHx8fA%3D%3D"
+                    alt="" id="" width="200px">
+            </li>
+            <li>
+                <img src="https://images.unsplash.com/photo-1607082333475-51c2938c9bfc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxheXxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="" id="" width="200px">
+            </li>
+            <li><a id="google" href="http://www.google.com" target="_blank" rel="noopener noreferrer"
+                    style="color: whitesmoke;">google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // Loren Strawberry
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl clicked');
+    // };
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log("clicked inside the ul");
+    // });
+    // document.getElementById('owl').addEventListener('click', function (e) {
+    //     console.log("clicked owl");
+    //     e.stopPropagation();
+    // });
+    // document.getElementById('google').addEventListener('click', function (e) {
+    //     console.log("clicked google");
+    //     e.preventDefault();
+    // });
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.parentNode);
+        // let remove = e.target.parentNode.remove();
+        if(e.target.tagName === 'IMG'){
+        let remove = e.target.parentNode;
+        remove.parentNode.removeChild(remove);
+        console.log(remove);
+        }
+    },false);
+// attachEvent()
+// jQuery - onEvent()
+// type, timeStamp, target, currentTarget, eventPhase, bubbles, cancelable
+// event.stopPropagation(), srcElement, event.preventDefault()
+// clientX, clientY, pageX, pageY, screenX, screenY
+// event.which, event.keyCode, event.charCode
+// event.shiftKey, event.ctrlKey, event.altKey, event.metaKey
+</script>
+
+</html>
