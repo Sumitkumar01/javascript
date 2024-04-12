@@ -91,13 +91,16 @@
 // }
 // getAllUser();
 
-fetch("https://jsonplaceholder.typicode.com/users").then((response) => {
-    return response.json()
-}).then((data) => {
-   data.map((item) => {
-    console.log(item.name)
+fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        data.map((item) => {
+            console.log(item.name);
+        });
+    })
+    .catch((er) => {
+        console.log(er);
     });
-}).catch((er) => {
-    console.log(er);
-})
-
+// microtaskquee
