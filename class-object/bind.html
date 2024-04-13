@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React bind eg</title>
+</head>
+
+<body>
+    <button>Click me</button>
+
+</body>
+
+<script>
+    class react {
+        constructor() {
+            this.libary = "react";
+            this.server = 'http://localhost:3000';
+
+            // requirement
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handle.bind(this));
+
+        }
+        handle() {
+            console.log(`${this.libary} is running on ${this.server}`);
+            console.log("Hello")
+        }
+    }
+
+    const app = new react();
+</script>
+
+</html>
